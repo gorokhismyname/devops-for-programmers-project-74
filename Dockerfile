@@ -7,3 +7,5 @@ COPY app/package*.json ./
 RUN npm install && apt-get update && apt-get install -y make
 
 COPY app/ ./
+
+RUN make setup
