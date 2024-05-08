@@ -1,6 +1,6 @@
 services:
   app:
-    # image: gorokhismyname/devops-for-programmers-project-74
+    image: gorokhismyname/devops-for-programmers-project-74:attempt1
     build:
       context: .
       dockerfile: Dockerfile.production
