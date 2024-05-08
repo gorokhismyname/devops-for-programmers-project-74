@@ -4,7 +4,7 @@ install:
 	npm install
 
 db-migrate:
-	npm run migrate
+	NODE_ENV=development npm run migrate
 
 build:
 	npm run build
@@ -16,7 +16,7 @@ start:
 	NODE_ENV=production npm run start
 
 dev:
-	npx concurrently "make start-frontend" "make start-backend"
+	NODE_ENV=development npx concurrently "make start-frontend" "make start-backend"
 
 start-backend:
 	npm start -- --watch --verbose-watch --ignore-watch='node_modules .git .sqlite'
