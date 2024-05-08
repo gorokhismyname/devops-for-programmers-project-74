@@ -4,7 +4,7 @@ install:
 	npm install
 
 db-migrate:
-	NODE_ENV=development npm run migrate
+	npm run migrate
 
 build:
 	npm run build
