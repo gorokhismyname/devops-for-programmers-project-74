@@ -13,7 +13,7 @@ prepare-env:
 	cp -n .env.example .env
 
 start:
-	NODE_ENV=production npm run start
+	NODE_ENV=development npm run start
 
 dev:
 	NODE_ENV=development npx concurrently "make start-frontend" "make start-backend"

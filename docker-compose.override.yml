@@ -5,7 +5,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - "./app:/app"
-    command: sh -c "make dev"
+    # command: sh -c "make start"
+    command: "make start"
 
   caddy:
     image: caddy:2.6

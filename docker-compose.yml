@@ -1,4 +1,18 @@
 services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
   app:
     image: gorokhismyname/devops-for-programmers-project-74:attempt1
     build:
@@ -6,4 +20,9 @@ services:
       dockerfile: Dockerfile.production
     ports:
       - "8080:8080"
+    depends_on:
+      - db
     command: sh -c "make test"
+
+volumes:
+  db_data:
