@@ -24,7 +24,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: sh -c "make test"
+    command: sh -c "if [ ! -f .env ]; then cp .env.example .env; echo '.env file created from .env.example'; fi && make test"
 
 volumes:
   db_data:
