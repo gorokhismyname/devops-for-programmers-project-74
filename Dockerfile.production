@@ -7,11 +7,10 @@ COPY app/package-lock.json package-lock.json
 RUN npm ci
 
 COPY app/. .
+COPY .env.example /app/.env
 
 EXPOSE 8080
 ENV NODE_ENV=production
-
-RUN cp .env.example ./.env
 RUN make build
 
 CMD make start
