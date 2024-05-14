@@ -10,8 +10,8 @@ COPY app/. .
 
 EXPOSE 8080
 ENV NODE_ENV=production
-RUN make build
 
 RUN if [ ! -f .env ]; then cp .env.example .env; echo '.env file created from .env.example'; fi
+RUN make build
 
 CMD make start
