@@ -7,9 +7,6 @@ compose-setup:
 compose-build:
 	docker-compose -f docker-compose.yml build app
 
-compose-install:
-	docker-compose run app make install
-
 compose-start:
 	docker-compose run app make start
 
@@ -18,3 +15,7 @@ install:
 
 start:
 	npm start
+
+setup: 
+	install db-migrate
+	npm ci
